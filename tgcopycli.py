@@ -9,7 +9,7 @@ import argparse
 from pyrogram import Client, filters
 from pyrogram.errors import FloodWait
 
-parser = argparse.ArgumentParser(description='hehdhd')
+parser = argparse.ArgumentParser(description='CLI tool for copying files bw two channels')
 parser.add_argument(
     "-i", "--api-id", help="API id from my.telegram.org",
     required=True, type=int
@@ -48,7 +48,7 @@ async def copy_files(client, message):
     await message.edit(f"Trying to copy files from __{args.fromc}__ to __{args.toc}__")
     await asyncio.sleep(2)
     count=0
-    async for msg in client.search_messages(args.fromc, filter="document"):
+    async for msg in client.search_messages(args.fromc, filter=args.filter):
         try:
             await msg.copy(args.toc)
         except FloodWait as wait:
