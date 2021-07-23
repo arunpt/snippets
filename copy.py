@@ -21,9 +21,9 @@ user = Client(
 async def copy_files(c, m):
     async for msg in c.iter_history(FROM):
         try:
-            if msg.document:
+            if msg.document:  # specify the message type (document|video|photo|...)
                 await msg.copy(TO)
-        except FloodWait as sec:
-            await asyncio.sleep(sec)
+        except FloodWait as t:
+            await asyncio.sleep(t.x)
   
 user.run()
