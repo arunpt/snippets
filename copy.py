@@ -12,9 +12,10 @@ API_ID = 1234
 API_HASH = "abcd1234edfghijkl"
 
 user = Client(
-    PYRO_SESSION,
+    "Test",
     api_id=API_ID,
     api_hash=API_HASH,
+    session_string=PYRO_SESSION,
 )
 
 @user.on_message(filters.command('copy') & filters.me)
