@@ -1,6 +1,6 @@
 import re
-import requests
 import csv
+import requests
 from bs4 import BeautifulSoup
 from bs4.element import ResultSet
 
